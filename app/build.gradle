@@ -4,7 +4,7 @@ android {
     compileSdkVersion 30
 
     defaultConfig {
-        applicationId "com.umeng.message.demo"
+        applicationId "com.syg.mall"
         minSdkVersion 14
         targetSdkVersion 30
         versionCode 1
@@ -15,22 +15,22 @@ android {
     }
 
     signingConfigs {
-        demo {
-            storeFile file('push.jks')
-            storePassword "123456"
-            keyAlias "123456"
-            keyPassword "123456"
+        config {
+            storeFile file('../syg.keystore')
+            keyAlias 'syg'
+            keyPassword 'syg83219377'
+            storePassword 'syg83219377'
         }
     }
 
     buildTypes {
         debug {
-            signingConfig signingConfigs.demo
+            signingConfig signingConfigs.config
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         release {
-            signingConfig signingConfigs.demo
+            signingConfig signingConfigs.config
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }

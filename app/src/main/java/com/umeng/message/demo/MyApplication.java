@@ -3,6 +3,7 @@ package com.umeng.message.demo;
 import android.app.Application;
 
 import com.umeng.commonsdk.UMConfigure;
+import com.umeng.message.PushAgent;
 import com.umeng.message.demo.helper.PushHelper;
 
 /**
@@ -39,6 +40,8 @@ public class MyApplication extends Application {
                 }
             }).start();
         }
+
+        PushAgent.getInstance(this).setResourcePackageName("com.umeng.message.demo");
     }
 
 }

@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.umeng.message.demo">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <uses-sdk
         android:minSdkVersion="14"
         tools:overrideLibrary="com.huawei.hms.framework.common,com.huawei.hms.framework.network.grs,com.huawei.hmf.tasks,com.huawei.agconnect.core,com.huawei.hms.log,com.huawei.hms.base.device,com.huawei.hms.base.ui,com.huawei.hms.stats,com.huawei.hms.base.availableupdate,com.huawei.android.hms.base,com.huawei.android.hms.openid,org.android.agoo.oppo,com.vivo.push,org.android.agoo.vivo,org.android.agoo.meizu,com.huawei.android.hms.push,org.android.agoo.huawei,com.heytap.mcssdk,com.huawei.hms.hatool,com.huawei.hms.framework.network.frameworkcompat"/>
@@ -61,18 +63,18 @@
         <!-- VIVO厂商通道 start-->
         <meta-data
             android:name="com.vivo.push.api_key"
-            android:value="1b5ce9f6-8304-4afc-b739-0e07fb22775e" />
+            android:value="bb17a6b8ca8a3c636a89745cfe251cbc" />
         <!--            android:value="此处改为VIVO后台真实参数" />-->
         <meta-data
             android:name="com.vivo.push.app_id"
-            android:value="17979" />
+            android:value="105464602" />
         <!--            android:value="此处改为VIVO后台真实参数" />-->
         <!-- VIVO厂商通道 end-->
 
         <!-- HUAWEI厂商通道 start-->
         <meta-data
             android:name="com.huawei.hms.client.appid"
-            android:value="appid=100429257" />
+            android:value="appid=103635683" />
         <!--            android:value="appid=此处改为HUAWEI后台真实参数" />-->
         <!-- HUAWEI厂商通道 end-->
 

@@ -14,12 +14,12 @@ public class PushConstants {
      * 应用申请的UmengMessageSecret
      */
 //    public static final String MESSAGE_SECRET = "应用申请的UmengMessageSecret";
-    public static final String MESSAGE_SECRET = "de1a9295ad7c8a23d3adcf5daac38c3f";
+    public static final String MESSAGE_SECRET = "47f570c422c10b1565d13723b11ac6e1";
 
     /**
      * 后台加密消息的密码（仅Demo用，请勿将此密码泄漏）
      */
-    public static final String APP_MASTER_SECRET = "6vnajkupxywhpgf60ndh73pbotyd8mfn";
+    public static final String APP_MASTER_SECRET = "7vawwyfclgfsoyevhjewpmrirwsvaemm";
 
     /**
      * 渠道名称，修改为您App的发布渠道名称
@@ -30,13 +30,13 @@ public class PushConstants {
      * 小米后台APP对应的xiaomi id
      */
 //    public static final String MI_ID = "填写您在小米后台APP对应的xiaomi id";
-    public static final String MI_ID = "2882303761517875511";
+    public static final String MI_ID = "2882303761518968332";
 
     /**
      * 小米后台APP对应的xiaomi key
      */
 //    public static final String MI_KEY = "填写您在小米后台APP对应的xiaomi key";
-    public static final String MI_KEY = "5961787531511";
+    public static final String MI_KEY = "5311896811332";
 
     /**
      * 魅族后台APP对应的xiaomi id
