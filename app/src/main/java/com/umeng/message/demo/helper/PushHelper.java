@@ -3,6 +3,8 @@ package com.umeng.message.demo.helper;
 import android.app.Application;
 import android.app.Notification;
 import android.content.Context;
+import android.content.Intent;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.taobao.accs.ACCSClient;
@@ -13,6 +15,7 @@ import com.umeng.message.PushAgent;
 import com.umeng.message.UmengMessageHandler;
 import com.umeng.message.UmengNotificationClickHandler;
 import com.umeng.message.api.UPushRegisterCallback;
+import com.umeng.message.demo.mfr.MfrMessageActivity;
 import com.umeng.message.entity.UMessage;
 
 import org.android.agoo.huawei.HuaWeiRegister;
@@ -20,6 +23,8 @@ import org.android.agoo.mezu.MeizuRegister;
 import org.android.agoo.oppo.OppoRegister;
 import org.android.agoo.vivo.VivoRegister;
 import org.android.agoo.xiaomi.MiPushRegistar;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * PushSDK集成帮助类
@@ -119,7 +124,7 @@ public class PushHelper {
             @Override
             public void dealWithNotificationMessage(Context context, UMessage msg) {
                 super.dealWithNotificationMessage(context, msg);
-                Log.i(TAG, "notification receiver:" + msg.getRaw().toString());
+                Log.i(TAG, "notification receiver:====" + msg.getRaw().toString());
             }
 
             //自定义通知样式
@@ -132,7 +137,7 @@ public class PushHelper {
             @Override
             public void dealWithCustomMessage(Context context, UMessage msg) {
                 super.dealWithCustomMessage(context, msg);
-                Log.i(TAG, "custom receiver:" + msg.getRaw().toString());
+                Log.i(TAG, "custom receiver:====" + msg.getRaw().toString());
             }
         };
         pushAgent.setMessageHandler(msgHandler);
@@ -142,19 +147,65 @@ public class PushHelper {
             @Override
             public void openActivity(Context context, UMessage msg) {
                 super.openActivity(context, msg);
-                Log.i(TAG, "click openActivity: " + msg.getRaw().toString());
+                Log.i(TAG, "click openActivity:======= " + msg.getRaw().toString());
+                String data = msg.custom.toString();
+                try {
+                    JSONObject jsonObject = new JSONObject(data);
+                    String pageName = jsonObject.get("local").toString();
+
+                    if (TextUtils.isEmpty(pageName)) {
+                        Log.e(TAG, "openActivity: pageName is null");
+                        return;
+                    }
+
+                    switch (pageName) {
+                        case "notice":
+                            break;
+                        case "goods":
+                            String goodsId = jsonObject.get("goodsId").toString();
+                            if (TextUtils.isEmpty(goodsId)) {
+                                Log.e(TAG, "openActivity: goodsId is null");
+                                return;
+                            }
+
+                            Intent intent = new Intent(context, MfrMessageActivity.class);
+                            intent.putExtra("goodsId", goodsId);
+                            context.startActivity(intent);
+                            break;
+                        case "sort":
+                            break;
+                        case "coupon":
+                            break;
+                        case "seckill":
+                            break;
+                        case "market":
+                            break;
+                        case "mall":
+                            break;
+                        case "AdView":
+                            break;
+                        case "lottey":
+                            break;
+
+
+
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
 
             @Override
             public void launchApp(Context context, UMessage msg) {
                 super.launchApp(context, msg);
-                Log.i(TAG, "click launchApp: " + msg.getRaw().toString());
+                Log.i(TAG, "click launchApp: ======" + msg.getRaw().toString());
             }
 
             @Override
             public void dismissNotification(Context context, UMessage msg) {
                 super.dismissNotification(context, msg);
-                Log.i(TAG, "click dismissNotification: " + msg.getRaw().toString());
+                Log.i(TAG, "click dismissNotification:=========== " + msg.getRaw().toString());
             }
         };
         pushAgent.setNotificationClickHandler(notificationClickHandler);

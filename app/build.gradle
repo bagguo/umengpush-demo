@@ -5,7 +5,7 @@ android {
 
     defaultConfig {
         applicationId "com.syg.mall"
-        minSdkVersion 14
+        minSdkVersion 19
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -50,4 +50,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':push')
+
+    implementation 'com.google.code.gson:gson:2.8.5'
+
 }

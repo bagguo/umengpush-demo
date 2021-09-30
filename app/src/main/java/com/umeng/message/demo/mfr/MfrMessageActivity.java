@@ -42,5 +42,14 @@ public class MfrMessageActivity extends UmengNotifyClickActivity {
                 }
             });
         }
+
+        final String goodsId = intent.getStringExtra("goodsId");
+        Log.d(TAG, "onMessage: =====" + goodsId);
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                ((TextView) findViewById(R.id.tv)).setText(goodsId);
+            }
+        });
     }
 }
